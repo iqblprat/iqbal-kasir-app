@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Mar 2024 pada 07.30
+-- Waktu pembuatan: 24 Mar 2024 pada 16.01
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -56,9 +56,10 @@ INSERT INTO `iqbal_tb_barang` (`iqbal_id_barang`, `iqbal_nama_barang`, `iqbal_ha
 (5, 'flashdisk sandisk 32gb', 50000, 24, '2024-03-24 05:57:49'),
 (7, 'laptop axioo', 16000000, 4, '2024-03-05 06:09:30'),
 (10, 'monitor aoc', 2000000, 15, '2024-03-05 00:42:51'),
-(11, 'router tp-link', 250000, 1, '2024-03-18 13:52:31'),
-(12, 'wlan receiver', 110000, 1, '2024-03-24 03:54:59'),
-(13, 'headset', 200000, 4, '2024-03-24 05:07:23');
+(11, 'router tp-link', 250000, 13, '2024-03-24 14:29:44'),
+(12, 'wlan receiver', 110000, 16, '2024-03-24 14:30:21'),
+(13, 'headset', 200000, 4, '2024-03-24 05:07:23'),
+(15, 'tws soundcore r50i', 180000, 50, '2024-03-24 14:34:22');
 
 --
 -- Trigger `iqbal_tb_barang`
@@ -221,7 +222,9 @@ INSERT INTO `iqbal_tb_log` (`iqbal_id_log`, `iqbal_id_user`, `iqbal_status`, `cr
 (99, 1, 'Login', '2024-03-24 05:12:50'),
 (100, 1, 'Login', '2024-03-24 05:17:00'),
 (101, 1, 'Logout', '2024-03-24 05:39:45'),
-(102, 1, 'Login', '2024-03-24 05:57:36');
+(102, 1, 'Login', '2024-03-24 05:57:36'),
+(103, 1, 'Login', '2024-03-24 13:52:13'),
+(104, 1, 'Login', '2024-03-24 14:59:45');
 
 -- --------------------------------------------------------
 
@@ -290,7 +293,10 @@ INSERT INTO `iqbal_tb_log_barang` (`iqbal_id_log`, `iqbal_id_barang`, `iqbal_nam
 (46, 14, 'soundcore r50i', 'Tambah barang', '2024-03-24 05:19:28'),
 (47, 14, 'soundcore r50i', 'Hapus barang', '2024-03-24 05:19:34'),
 (48, 2, 'Keyboard Zifriend', 'Ubah barang', '2024-03-24 05:57:49'),
-(49, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-24 05:57:49');
+(49, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-24 05:57:49'),
+(50, 11, 'router tp-link', 'Ubah barang', '2024-03-24 14:29:44'),
+(51, 12, 'wlan receiver', 'Ubah barang', '2024-03-24 14:30:21'),
+(52, 15, 'tws soundcore r50i', 'Tambah barang', '2024-03-24 14:34:22');
 
 -- --------------------------------------------------------
 
@@ -458,7 +464,7 @@ ALTER TABLE `iqbal_tb_user`
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_barang`
 --
 ALTER TABLE `iqbal_tb_barang`
-  MODIFY `iqbal_id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `iqbal_id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_detail`
@@ -470,13 +476,13 @@ ALTER TABLE `iqbal_tb_detail`
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_log`
 --
 ALTER TABLE `iqbal_tb_log`
-  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_log_barang`
 --
 ALTER TABLE `iqbal_tb_log_barang`
-  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_log_transaksi`
