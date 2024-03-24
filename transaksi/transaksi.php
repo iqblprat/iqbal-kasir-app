@@ -45,7 +45,7 @@
             <button type="button" class="btn btn-outline-secondary mb-3 float-start" data-bs-toggle="modal" data-bs-target="#filterModal">
                     <i class="fa-solid fa-calendar-days"></i>
             </button>
-            <a href="#" class="btn btn-outline-warning mb-3 mx-2"><i class="fa-solid fa-file-excel"></i> Rekap Data Transaksi</a>
+            <a href="downloadRekapTransaksi.php" class="btn btn-outline-warning mb-3 mx-2"><i class="fa-solid fa-file-excel"></i> Rekap Data Transaksi</a>
             <a href="formTambahTransaksi.php" class="btn btn-outline-success mb-3"><i class="fa-solid fa-cart-plus"></i> Tambah Transaksi</a>
         </div>
     </div>
