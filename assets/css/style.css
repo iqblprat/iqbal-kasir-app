@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#sidebar-wrapper {
+    height: 100vh;
+    overflow-y: auto;
+}
