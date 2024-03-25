@@ -39,7 +39,7 @@
                 <label for="password">Password</label>
                 <input type="text" name="password" placeholder="Masukkan Password" class="form-control" required>
             </div>            
-            <button type="submit" class="btn btn-outline-primary" value="tambah">Tambah</button>
+            <button type="submit" class="btn btn-outline-success" value="tambah"><i class="fa-solid fa-user-plus"></i> Tambah</button>
         </form>
     </div>
 </body>

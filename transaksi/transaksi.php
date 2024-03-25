@@ -70,16 +70,19 @@
                 <td class="text-center">
                     <?php 
                         if ($row['iqbal_status'] == 0) {
-                            echo 'Belum Selesai';
+                            echo 'Belum Dibayar';
                         } elseif ($row['iqbal_status'] == 1) {
-                            echo 'Selesai';
+                            echo 'Selesai Dibayar';
                         } else {
-                            echo 'Tidak Diketahui / Error';
+                            echo 'Tidak Diketahui';
                         }
                     ?>
                 </td>
                 </td>
                 <td class="text-center">
+                    <?php if ($row['iqbal_status'] == 0) : ?>
+                        <a href="formPembayaran.php?id_transaksi=<?= $row['iqbal_id_transaksi'] ?>" class="btn btn-outline-success"><i class="fa-solid fa-wallet"></i> Bayar</a>
+                    <?php endif; ?>
                     <a href="detailTransaksi.php?id_transaksi=<?= $row['iqbal_id_transaksi'] ?>" class="btn btn-outline-info"><i class="fa-solid fa-circle-info"></i> Detail</a>
                 </td>
             </tr>

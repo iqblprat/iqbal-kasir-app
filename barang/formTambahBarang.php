@@ -30,7 +30,7 @@
                 <label for="harga">Stok Barang</label>
                 <input type="number" name="stok" placeholder="Masukkan Stok Barang" class="form-control" required>
             </div>            
-            <button type="submit" class="btn btn-outline-success" value="tambah">Tambah</button>
+            <button type="submit" class="btn btn-outline-success" value="tambah"><i class="fa-regular fa-square-plus"></i> Tambah</button>
         </form>
     </div>
 </body>

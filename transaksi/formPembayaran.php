@@ -30,29 +30,34 @@ if(isset($_GET['id_transaksi'])) {
         <!-- <a href="formTambahTransaksi.php" class="btn btn-outline-secondary my-2 disable"><i class="fa-solid fa-arrow-left"></i> Kembali</a> -->
         <table class="table table-hover">
             <tr>
+                <th>No</th>
                 <th>Nama Barang</th>
-                <th>Qty</th>
                 <th>Harga Satuan</th>
+                <th>Qty</th>
                 <th>Subtotal</th>
             </tr>
-            <?php while ($row = mysqli_fetch_assoc($result_detail_barang)): ?>
+            <?php
+                $no = 1; 
+                while ($row = mysqli_fetch_assoc($result_detail_barang)): 
+                ?>
                 <tr>
+                    <td><?= $no++ ?></td>
                     <td><?= $row['iqbal_nama_barang'] ?></td>
-                    <td><?= $row['iqbal_qty'] ?></td>
-                    <td>Rp <?= number_format($row['iqbal_harga_barang'], 2, ',', '.') ?></td>
-                    <td>Rp <?= number_format($row['iqbal_subtotal'], 2, ',', '.') ?></td>
+                    <td width="20%">Rp <?= number_format($row['iqbal_harga_barang'], 2, ',', '.') ?></td>
+                    <td width="10%"><?= $row['iqbal_qty'] ?></td>
+                    <td width="20%">Rp <?= number_format($row['iqbal_subtotal'], 2, ',', '.') ?></td>
                 </tr>
                 <?php 
                 $total += $row['iqbal_subtotal'];
                 ?>
             <?php endwhile; ?>
             <tr>
-                <td colspan="3" class="text-end"><b>Total</b></td>
-                <td colspan="3"><b>Rp <?= number_format($total, 2, ',', '.') ?></b></td>
+                <td colspan="4" class="text-end"><b>Total</b></td>
+                <td colspan="4"><b>Rp <?= number_format($total, 2, ',', '.') ?></b></td>
             </tr>
             <tr>
-                <td colspan="3" class="text-end"><b>Tunai</b></td>
-                <td colspan="3" class="w-25">
+                <td colspan="4" class="text-end"><b>Tunai</b></td>
+                <td colspan="4" class="w-25">
                     <form action="prosesPembayaran.php" method="POST" onsubmit="return validatePayment()">
                         <input type="hidden" class="form-control" name="id_transaksi" value="<?= $id_transaksi ?>">
                         <div class="input-group">

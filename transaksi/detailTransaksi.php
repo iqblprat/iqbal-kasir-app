@@ -20,6 +20,7 @@ if ($result_detail_transaksi) {
         $jumlah_barang += $row['iqbal_qty'];
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +88,7 @@ if ($result_detail_transaksi) {
     </div>
 </body>
 </html>
+
 <?php
 } else {
     echo "Error: " . $sql_detail_transaksi . "<br>" . mysqli_error($conn);

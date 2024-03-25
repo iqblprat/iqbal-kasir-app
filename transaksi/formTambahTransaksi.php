@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
 if(isset($_GET['hapus'])) {
     $hapus_id = $_GET['hapus'];
     foreach ($_SESSION['keranjang'] as $key => $item) {
@@ -206,7 +205,7 @@ if (!$result){
                         </tr>
                     <?php endforeach; ?>
                     <tr>
-                        <td colspan="3"><b>Total</b></td>
+                        <td class="text-end" colspan="3"><b>Total</b></td>
                         <td colspan="2"><b>Rp <?= number_format($total, 2, ',', '.') ?></b></td>
                     </tr>
                 </table>
