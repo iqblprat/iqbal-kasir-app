@@ -48,6 +48,7 @@ if ($result_detail_transaksi) {
                 <a href="transaksi.php" class="btn btn-outline-secondary my-2"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
             </div>
             <div class="col-md-6">
+<<<<<<< HEAD
                 <a href="cetakStrukTransaksi.php?id_transaksi=<?= $id_transaksi ?>" class="btn btn-outline-dark my-2 float-end"><i class="fa-solid fa-print"></i> Cetak Struk Transaksi</a>
             </div>
         </div>
@@ -55,6 +56,15 @@ if ($result_detail_transaksi) {
             <div class="col-md-4 text-start"><b>Tanggal Transaksi:</b> <?= $tanggal_transaksi ?></div>
             <div class="col-md-4 text-center"><b>ID Transaksi:</b> <?= $id_transaksi ?></div>
             <div class="col-md-4 text-end"><b>Kasir:</b> <?= strtoupper($nama_user) ?></div>
+=======
+                <a href="cetakStrukTransaksi.php" class="btn btn-outline-dark my-2 float-end"><i class="fa-solid fa-receipt"></i> Cetak Struk Transaksi</a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4 text-start"><b>ID Transaksi:</b> <?= $id_transaksi ?></div>
+            <div class="col-md-4 text-center"><b>User:</b> <?= $nama_user ?></div>
+            <div class="col-md-4 text-end"><b>Tanggal Transaksi:</b> <?= $tanggal_transaksi ?></div>
+>>>>>>> d1f41ccffb8dcea94dbab50c7763b3736ee1fb33
         </div>
         <table class="table table-hover">
             <thead>
