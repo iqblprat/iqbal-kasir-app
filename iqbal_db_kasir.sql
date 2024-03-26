@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Mar 2024 pada 16.01
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.0.30
+-- Waktu pembuatan: 26 Mar 2024 pada 07.42
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,9 +25,9 @@ DELIMITER $$
 --
 -- Prosedur
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `kurangi_stok_barang` (IN `id` INT(11), IN `jumlah` INT(11))   UPDATE iqbal_tb_barang SET iqbal_tb_barang.iqbal_stok_barang = iqbal_tb_barang.iqbal_stok_barang - jumlah WHERE iqbal_tb_barang.iqbal_id_barang = id$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `kurangi_stok_barang` (IN `id` INT(11), IN `jumlah` INT(11))  UPDATE iqbal_tb_barang SET iqbal_tb_barang.iqbal_stok_barang = iqbal_tb_barang.iqbal_stok_barang - jumlah WHERE iqbal_tb_barang.iqbal_id_barang = id$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `tambah_stok_barang` (IN `id` INT(11), IN `jumlah` INT(11))   UPDATE iqbal_tb_barang SET iqbal_tb_barang.iqbal_stok_barang = iqbal_tb_barang.iqbal_stok_barang + jumlah WHERE iqbal_tb_barang.iqbal_id_barang = id$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `tambah_stok_barang` (IN `id` INT(11), IN `jumlah` INT(11))  UPDATE iqbal_tb_barang SET iqbal_tb_barang.iqbal_stok_barang = iqbal_tb_barang.iqbal_stok_barang + jumlah WHERE iqbal_tb_barang.iqbal_id_barang = id$$
 
 DELIMITER ;
 
@@ -43,23 +43,23 @@ CREATE TABLE `iqbal_tb_barang` (
   `iqbal_harga_barang` int(11) NOT NULL,
   `iqbal_stok_barang` int(11) NOT NULL,
   `iqbal_updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_barang`
 --
 
 INSERT INTO `iqbal_tb_barang` (`iqbal_id_barang`, `iqbal_nama_barang`, `iqbal_harga_barang`, `iqbal_stok_barang`, `iqbal_updated_at`) VALUES
-(1, 'Mouse Noir', 300000, 8, '2024-03-24 05:09:36'),
-(2, 'Keyboard Zifriend', 400000, 2, '2024-03-24 05:57:49'),
-(3, 'headphone rexus daxa', 550000, 5, '2024-03-18 06:45:09'),
-(5, 'flashdisk sandisk 32gb', 50000, 24, '2024-03-24 05:57:49'),
-(7, 'laptop axioo', 16000000, 4, '2024-03-05 06:09:30'),
-(10, 'monitor aoc', 2000000, 15, '2024-03-05 00:42:51'),
-(11, 'router tp-link', 250000, 13, '2024-03-24 14:29:44'),
-(12, 'wlan receiver', 110000, 16, '2024-03-24 14:30:21'),
-(13, 'headset', 200000, 4, '2024-03-24 05:07:23'),
-(15, 'tws soundcore r50i', 180000, 50, '2024-03-24 14:34:22');
+(1, 'Mouse Noir', 300000, 4, '2024-03-26 06:41:18'),
+(2, 'Keyboard Zifriend', 400000, 1, '2024-03-26 06:41:18'),
+(3, 'headphone rexus daxa', 550000, 4, '2024-03-26 06:41:18'),
+(5, 'flashdisk sandisk 32gb', 50000, 20, '2024-03-26 06:41:18'),
+(7, 'laptop axioo', 16000000, 3, '2024-03-26 06:41:18'),
+(10, 'monitor aoc', 2000000, 14, '2024-03-26 06:41:18'),
+(11, 'router tp-link', 250000, 11, '2024-03-26 06:41:18'),
+(12, 'wlan receiver', 110000, 11, '2024-03-26 06:41:18'),
+(13, 'headset', 200000, 6, '2024-03-26 06:41:18'),
+(15, 'tws soundcore r50i', 185000, 42, '2024-03-26 06:41:18');
 
 --
 -- Trigger `iqbal_tb_barang`
@@ -93,7 +93,7 @@ CREATE TABLE `iqbal_tb_detail` (
   `iqbal_qty` int(11) NOT NULL,
   `iqbal_subtotal` int(11) NOT NULL,
   `iqbal_created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_detail`
@@ -121,7 +121,39 @@ INSERT INTO `iqbal_tb_detail` (`iqbal_id_detail`, `iqbal_id_transaksi`, `iqbal_i
 (20, 17, 13, 1, 200000, '2024-03-24 05:07:23'),
 (21, 17, 1, 1, 300000, '2024-03-24 05:07:23'),
 (22, 18, 2, 1, 400000, '2024-03-24 05:57:49'),
-(23, 18, 5, 1, 50000, '2024-03-24 05:57:49');
+(23, 18, 5, 1, 50000, '2024-03-24 05:57:49'),
+(24, 19, 1, 1, 300000, '2024-03-25 02:20:22'),
+(25, 19, 11, 1, 250000, '2024-03-25 02:20:22'),
+(26, 20, 5, 1, 50000, '2024-03-25 04:03:20'),
+(27, 20, 12, 1, 110000, '2024-03-25 04:03:20'),
+(28, 21, 15, 1, 180000, '2024-03-25 04:04:39'),
+(29, 22, 13, 1, 200000, '2024-03-25 05:16:52'),
+(30, 22, 5, 1, 50000, '2024-03-25 05:16:52'),
+(31, 22, 12, 1, 110000, '2024-03-25 05:16:52'),
+(32, 23, 15, 1, 185000, '2024-03-26 03:08:27'),
+(33, 23, 5, 1, 50000, '2024-03-26 03:08:27'),
+(34, 24, 15, 1, 185000, '2024-03-26 03:25:36'),
+(35, 25, 15, 1, 185000, '2024-03-26 04:46:13'),
+(36, 25, 13, 1, 200000, '2024-03-26 04:46:13'),
+(37, 25, 12, 1, 110000, '2024-03-26 04:46:13'),
+(38, 26, 12, 1, 110000, '2024-03-26 04:46:50'),
+(39, 26, 15, 1, 185000, '2024-03-26 04:46:50'),
+(40, 26, 13, 2, 400000, '2024-03-26 04:46:50'),
+(41, 26, 1, 1, 300000, '2024-03-26 04:46:50'),
+(42, 27, 13, 1, 200000, '2024-03-26 06:27:51'),
+(43, 27, 15, 1, 185000, '2024-03-26 06:27:51'),
+(44, 28, 15, 1, 185000, '2024-03-26 06:29:31'),
+(45, 28, 1, 1, 300000, '2024-03-26 06:29:31'),
+(46, 29, 1, 1, 300000, '2024-03-26 06:41:18'),
+(47, 29, 2, 1, 400000, '2024-03-26 06:41:18'),
+(48, 29, 3, 1, 550000, '2024-03-26 06:41:18'),
+(49, 29, 5, 1, 50000, '2024-03-26 06:41:18'),
+(50, 29, 7, 1, 16000000, '2024-03-26 06:41:18'),
+(51, 29, 10, 1, 2000000, '2024-03-26 06:41:18'),
+(52, 29, 11, 1, 250000, '2024-03-26 06:41:18'),
+(53, 29, 12, 1, 110000, '2024-03-26 06:41:18'),
+(54, 29, 13, 1, 200000, '2024-03-26 06:41:18'),
+(55, 29, 15, 1, 185000, '2024-03-26 06:41:18');
 
 --
 -- Trigger `iqbal_tb_detail`
@@ -144,7 +176,7 @@ CREATE TABLE `iqbal_tb_log` (
   `iqbal_id_user` int(11) NOT NULL,
   `iqbal_status` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_log`
@@ -224,7 +256,33 @@ INSERT INTO `iqbal_tb_log` (`iqbal_id_log`, `iqbal_id_user`, `iqbal_status`, `cr
 (101, 1, 'Logout', '2024-03-24 05:39:45'),
 (102, 1, 'Login', '2024-03-24 05:57:36'),
 (103, 1, 'Login', '2024-03-24 13:52:13'),
-(104, 1, 'Login', '2024-03-24 14:59:45');
+(104, 1, 'Login', '2024-03-24 14:59:45'),
+(105, 1, 'Logout', '2024-03-25 00:54:17'),
+(106, 4, 'Login', '2024-03-25 00:54:24'),
+(107, 4, 'Logout', '2024-03-25 01:02:01'),
+(108, 6, 'Login', '2024-03-25 01:02:08'),
+(109, 1, 'Login', '2024-03-25 03:20:18'),
+(110, 1, 'Logout', '2024-03-25 04:02:48'),
+(111, 1, 'Login', '2024-03-25 04:02:52'),
+(112, 1, 'Logout', '2024-03-26 02:30:47'),
+(113, 1, 'Login', '2024-03-26 02:36:57'),
+(114, 4, 'Login', '2024-03-26 03:12:33'),
+(115, 4, 'Logout', '2024-03-26 03:13:50'),
+(116, 6, 'Login', '2024-03-26 03:13:57'),
+(117, 4, 'Login', '2024-03-26 03:18:43'),
+(118, 4, 'Logout', '2024-03-26 03:18:53'),
+(119, 1, 'Login', '2024-03-26 03:23:47'),
+(120, 4, 'Login', '2024-03-26 03:24:52'),
+(121, 1, 'Logout', '2024-03-26 03:26:11'),
+(122, 1, 'Login', '2024-03-26 03:30:27'),
+(123, 1, 'Logout', '2024-03-26 03:40:29'),
+(124, 1, 'Login', '2024-03-26 03:40:37'),
+(125, 1, 'Logout', '2024-03-26 03:44:08'),
+(126, 1, 'Login', '2024-03-26 03:44:11'),
+(127, 1, 'Logout', '2024-03-26 03:44:57'),
+(128, 4, 'Login', '2024-03-26 03:45:03'),
+(129, 4, 'Logout', '2024-03-26 03:55:14'),
+(130, 1, 'Login', '2024-03-26 03:55:18');
 
 -- --------------------------------------------------------
 
@@ -238,7 +296,7 @@ CREATE TABLE `iqbal_tb_log_barang` (
   `iqbal_nama_barang` varchar(50) NOT NULL,
   `iqbal_status` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_log_barang`
@@ -296,7 +354,41 @@ INSERT INTO `iqbal_tb_log_barang` (`iqbal_id_log`, `iqbal_id_barang`, `iqbal_nam
 (49, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-24 05:57:49'),
 (50, 11, 'router tp-link', 'Ubah barang', '2024-03-24 14:29:44'),
 (51, 12, 'wlan receiver', 'Ubah barang', '2024-03-24 14:30:21'),
-(52, 15, 'tws soundcore r50i', 'Tambah barang', '2024-03-24 14:34:22');
+(52, 15, 'tws soundcore r50i', 'Tambah barang', '2024-03-24 14:34:22'),
+(53, 1, 'Mouse Noir', 'Ubah barang', '2024-03-25 02:20:22'),
+(54, 11, 'router tp-link', 'Ubah barang', '2024-03-25 02:20:22'),
+(55, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-25 04:03:20'),
+(56, 12, 'wlan receiver', 'Ubah barang', '2024-03-25 04:03:20'),
+(57, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-25 04:04:39'),
+(58, 13, 'headset', 'Ubah barang', '2024-03-25 05:16:52'),
+(59, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-25 05:16:52'),
+(60, 12, 'wlan receiver', 'Ubah barang', '2024-03-25 05:16:52'),
+(61, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 02:23:15'),
+(62, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 03:08:27'),
+(63, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-26 03:08:27'),
+(64, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 03:25:36'),
+(65, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 04:46:13'),
+(66, 13, 'headset', 'Ubah barang', '2024-03-26 04:46:13'),
+(67, 12, 'wlan receiver', 'Ubah barang', '2024-03-26 04:46:13'),
+(68, 12, 'wlan receiver', 'Ubah barang', '2024-03-26 04:46:50'),
+(69, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 04:46:50'),
+(70, 13, 'headset', 'Ubah barang', '2024-03-26 04:46:50'),
+(71, 1, 'Mouse Noir', 'Ubah barang', '2024-03-26 04:46:50'),
+(72, 13, 'headset', 'Ubah barang', '2024-03-26 06:20:10'),
+(73, 13, 'headset', 'Ubah barang', '2024-03-26 06:27:51'),
+(74, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 06:27:51'),
+(75, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 06:29:31'),
+(76, 1, 'Mouse Noir', 'Ubah barang', '2024-03-26 06:29:31'),
+(77, 1, 'Mouse Noir', 'Ubah barang', '2024-03-26 06:41:18'),
+(78, 2, 'Keyboard Zifriend', 'Ubah barang', '2024-03-26 06:41:18'),
+(79, 3, 'headphone rexus daxa', 'Ubah barang', '2024-03-26 06:41:18'),
+(80, 5, 'flashdisk sandisk 32gb', 'Ubah barang', '2024-03-26 06:41:18'),
+(81, 7, 'laptop axioo', 'Ubah barang', '2024-03-26 06:41:18'),
+(82, 10, 'monitor aoc', 'Ubah barang', '2024-03-26 06:41:18'),
+(83, 11, 'router tp-link', 'Ubah barang', '2024-03-26 06:41:18'),
+(84, 12, 'wlan receiver', 'Ubah barang', '2024-03-26 06:41:18'),
+(85, 13, 'headset', 'Ubah barang', '2024-03-26 06:41:18'),
+(86, 15, 'tws soundcore r50i', 'Ubah barang', '2024-03-26 06:41:18');
 
 -- --------------------------------------------------------
 
@@ -309,7 +401,7 @@ CREATE TABLE `iqbal_tb_log_transaksi` (
   `iqbal_id_transaksi` int(11) NOT NULL,
   `iqbal_id_user` int(11) NOT NULL,
   `iqbal_status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -320,7 +412,7 @@ CREATE TABLE `iqbal_tb_log_transaksi` (
 CREATE TABLE `iqbal_tb_role` (
   `iqbal_id_role` int(11) NOT NULL,
   `iqbal_role` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_role`
@@ -344,7 +436,7 @@ CREATE TABLE `iqbal_tb_transaksi` (
   `iqbal_tunai` int(11) NOT NULL,
   `iqbal_kembali` int(11) NOT NULL,
   `iqbal_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_transaksi`
@@ -354,7 +446,7 @@ INSERT INTO `iqbal_tb_transaksi` (`iqbal_id_transaksi`, `iqbal_id_user`, `iqbal_
 (1, 2, '2024-03-18 13:14:59', 600000, 600000, 0, 1),
 (2, 2, '2024-03-18 13:14:59', 400000, 400000, 0, 1),
 (3, 1, '2024-03-18 13:14:59', 300000, 300000, 0, 1),
-(10, 0, '2024-03-18 13:52:31', 800000, 0, 0, 0),
+(10, 1, '2024-03-25 02:15:51', 800000, 800000, 0, 1),
 (11, 1, '2024-03-24 03:19:24', 410000, 420000, 10000, 1),
 (12, 1, '2024-03-24 03:49:57', 310000, 350000, 40000, 1),
 (13, 1, '2024-03-24 03:55:09', 160000, 200000, 40000, 1),
@@ -362,7 +454,18 @@ INSERT INTO `iqbal_tb_transaksi` (`iqbal_id_transaksi`, `iqbal_id_user`, `iqbal_
 (15, 1, '2024-03-24 04:46:57', 250000, 300000, 50000, 1),
 (16, 1, '2024-03-24 04:51:47', 750000, 760000, 10000, 1),
 (17, 1, '2024-03-24 05:07:30', 500000, 500000, 0, 1),
-(18, 1, '2024-03-24 05:57:55', 450000, 500000, 50000, 1);
+(18, 1, '2024-03-24 05:57:55', 450000, 500000, 50000, 1),
+(19, 6, '2024-03-25 02:22:50', 550000, 600000, 50000, 1),
+(20, 1, '2024-03-25 04:04:01', 160000, 170000, 10000, 1),
+(21, 1, '2024-03-25 04:05:36', 180000, 200000, 20000, 1),
+(22, 1, '2024-03-25 05:17:02', 360000, 400000, 40000, 1),
+(23, 1, '2024-03-26 03:09:14', 235000, 250000, 15000, 1),
+(24, 1, '2024-03-26 03:25:41', 185000, 190000, 5000, 1),
+(25, 1, '2024-03-26 04:47:18', 495000, 500000, 5000, 1),
+(26, 1, '2024-03-26 04:46:59', 995000, 1000000, 5000, 1),
+(27, 1, '2024-03-26 06:28:08', 385000, 390000, 5000, 1),
+(28, 1, '2024-03-26 06:29:55', 485000, 500000, 15000, 1),
+(29, 1, '2024-03-26 06:41:32', 20045000, 20050000, 5000, 1);
 
 -- --------------------------------------------------------
 
@@ -378,7 +481,7 @@ CREATE TABLE `iqbal_tb_user` (
   `iqbal_password` varchar(255) NOT NULL,
   `iqbal_jk` enum('laki-laki','perempuan') NOT NULL,
   `iqbal_status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `iqbal_tb_user`
@@ -388,7 +491,7 @@ INSERT INTO `iqbal_tb_user` (`iqbal_id_user`, `iqbal_id_role`, `iqbal_nama`, `iq
 (1, 1, 'david', 'admin', '$2y$10$OHk3H7mX3yHqfrItOLiOwOaVHMuJqYhKnQbkN9j6S.olgetLc.pi.', 'laki-laki', 'Login'),
 (2, 2, 'pedro', 'petugas', '$2y$10$s3O/eAxlbhLQiFANlLVya.ENdf1rzJeRTKFB.YmFB8c3vBP/Sc6xS', 'laki-laki', 'Logout'),
 (4, 2, 'jynn', 'kasir', '$2y$10$2HewZQcuojEaMIz1C6GQWOc7dWg.GGrgdCsXZ3qqLSLK3NzvKJhra', 'laki-laki', 'Logout'),
-(6, 1, 'wanto', 'atmin', '$2y$10$rpUN1mKKdtWR3.CH9Ocn6O3h86qNbBwJ.o/YBGgVJ0uPx8gfpg0rO', 'laki-laki', 'Logout');
+(6, 1, 'wanto', 'atmin', '$2y$10$rpUN1mKKdtWR3.CH9Ocn6O3h86qNbBwJ.o/YBGgVJ0uPx8gfpg0rO', 'laki-laki', 'Login');
 
 --
 -- Trigger `iqbal_tb_user`
@@ -470,19 +573,19 @@ ALTER TABLE `iqbal_tb_barang`
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_detail`
 --
 ALTER TABLE `iqbal_tb_detail`
-  MODIFY `iqbal_id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `iqbal_id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_log`
 --
 ALTER TABLE `iqbal_tb_log`
-  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_log_barang`
 --
 ALTER TABLE `iqbal_tb_log_barang`
-  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `iqbal_id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_log_transaksi`
@@ -500,7 +603,7 @@ ALTER TABLE `iqbal_tb_role`
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_transaksi`
 --
 ALTER TABLE `iqbal_tb_transaksi`
-  MODIFY `iqbal_id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `iqbal_id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `iqbal_tb_user`

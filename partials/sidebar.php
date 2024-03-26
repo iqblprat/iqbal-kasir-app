@@ -16,8 +16,13 @@ $user_role = $_SESSION['iqbal_id_role'];
 <div class="col-md-2 border-end bg-white rounded shadow" id="sidebar-wrapper">
     <div class="sidebar-heading border-bottom text-center my-2"><i class="fa-solid fa-cash-register"></i> <b class="">Kasir</b></div>
     <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action p-3 <?php echo ($current_page == 'beranda.php') ? 'active' : ''; ?>" href=""><i class="fa-solid fa-house"></i> Beranda</a>
-        
+        <?php if ($user_role == 1) : ?>
+            <a class="list-group-item list-group-item-action p-3 <?php echo ($current_page == 'admin.php') ? 'active' : ''; ?>" href="../admin/admin.php"><i class="fa-solid fa-house"></i> Beranda</a>
+        <?php endif; ?>
+        <?php if ($user_role == 2) : ?>
+            <a class="list-group-item list-group-item-action p-3 <?php echo ($current_page == 'petugas.php') ? 'active' : ''; ?>" href="../petugas/petugas.php"><i class="fa-solid fa-house"></i> Beranda</a>
+        <?php endif; ?>
+
         <?php if ($user_role == 1) : ?>
             <a class="list-group-item list-group-item-action p-3 <?php echo ($current_page == 'barang.php') ? 'active' : ''; ?>" href="../barang/barang.php"><i class="fa-solid fa-boxes-stacked"></i> Barang <small class="badge rounded-pill text-bg-secondary float-end">Admin</small></a>
             <a class="list-group-item list-group-item-action p-3 <?php echo ($current_page == 'user.php') ? 'active' : ''; ?>" href="../user/user.php"><i class="fa-solid fa-users"></i> User <small class="badge rounded-pill text-bg-secondary float-end">Admin</small></a>

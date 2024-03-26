@@ -10,6 +10,12 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 $spreadsheet = new Spreadsheet();
 $activeWorksheet = $spreadsheet->getActiveSheet();
+
+$activeWorksheet->mergeCells('A1:H1');
+
+$activeWorksheet->setCellValue('A1', 'Rekap Data Transaksi');
+$activeWorksheet->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
 $activeWorksheet->setCellValue('A2', 'No');
 $activeWorksheet->setCellValue('B2', 'ID Transaksi');
 $activeWorksheet->setCellValue('C2', 'ID User');
@@ -37,13 +43,13 @@ foreach ($data_transaksi as $transaksi){
     $activeWorksheet->setCellValue('D' . $start, $transaksi['iqbal_tanggal']);
     $activeWorksheet->getColumnDimension('D')->setAutoSize(true);
 
-    $activeWorksheet->setCellValue('E' . $start, $transaksi['iqbal_total']);
+    $activeWorksheet->setCellValue('E' . $start, 'Rp ' . number_format($transaksi['iqbal_total'], 2, ',', '.'));
     $activeWorksheet->getColumnDimension('E')->setAutoSize(true);
 
-    $activeWorksheet->setCellValue('F' . $start, $transaksi['iqbal_tunai']);
+    $activeWorksheet->setCellValue('F' . $start, 'Rp ' . number_format($transaksi['iqbal_tunai'], 2, ',', '.'));
     $activeWorksheet->getColumnDimension('F')->setAutoSize(true);
 
-    $activeWorksheet->setCellValue('G' . $start, $transaksi['iqbal_kembali']);
+    $activeWorksheet->setCellValue('G' . $start, 'Rp ' . number_format($transaksi['iqbal_kembali'], 2, ',', '.'));
     $activeWorksheet->getColumnDimension('G')->setAutoSize(true);
 
     $activeWorksheet->setCellValue('H' . $start, $transaksi['iqbal_status']);

@@ -1,7 +1,12 @@
 <?php 
+// session_start();
 $pageTitle = "Data Barang";
+// if (isset($_SESSION['LOGIN'])){
+
+// }
 include '../layouts/header.php'; 
 ?>
+
     <h2 class="mt-3"><i class="fa-solid fa-box"></i> <b>Barang</b></h2>
     <hr>
     <?php 
@@ -48,7 +53,7 @@ include '../layouts/header.php';
         ?>
             <tr>
                 <td class="text-center"><?= $no++ ?></td>
-                <td><?= $row['iqbal_nama_barang'] ?></td>
+                <td><?= ucwords($row['iqbal_nama_barang']) ?></td>
                 <td class="text-center">B-<?= $row['iqbal_id_barang'] ?></td>
                 <td>Rp <?= number_format($row['iqbal_harga_barang'], 2, ',', '.') ?></td>
                 <td class="text-center"><?= $row['iqbal_stok_barang']?></td>
@@ -59,4 +64,5 @@ include '../layouts/header.php';
             </tr>
         <?php endforeach; ?>
     </table>
+
 <?php include '../layouts/footer.php'; ?>

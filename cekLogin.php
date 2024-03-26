@@ -15,18 +15,21 @@ if (mysqli_num_rows($query) != 0) {
         $updateLog = "UPDATE iqbal_tb_user SET iqbal_status = 'Login' WHERE iqbal_username = '$username'";
         $update = mysqli_query($conn, $updateLog);
 
+        session_regenerate_id();
+
         $_SESSION['username'] = $data['iqbal_username'];
         $_SESSION['password'] = $data['iqbal_password'];
         $_SESSION['iqbal_id_user'] = $data['iqbal_id_user'];
-        
+        $_SESSION['LOGIN'] = "LOGIN";
+
         if ($data['iqbal_id_role'] == '1') {
             $_SESSION['iqbal_id_role'] = '1';
-            $_SESSION['LOGIN'] = "LOGIN";
             header("location: admin/admin.php");
+            exit;
         } elseif ($data['iqbal_id_role'] == '2') {
             $_SESSION['iqbal_id_role'] = '2';
-            $_SESSION['LOGIN'] = "LOGIN";
             header("location: petugas/petugas.php");
+            exit;
         }
     } else {
         echo "<br>Password salah";

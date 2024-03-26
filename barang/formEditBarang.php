@@ -10,7 +10,7 @@
     </head>
 <body>
     <div class="container">
-        <h2 class="mt-3"><b>Edit Data Barang</b></h2>
+        <h2 class="mt-3"><b><i class="fa-solid fa-pen-to-square"></i> Edit Data Barang</b></h2>
         <hr>
         <a href="barang.php" class="btn btn-outline-secondary my-2"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
         <?php

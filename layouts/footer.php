@@ -1,7 +1,7 @@
 <div class="row mt-3">
         <div class="col-md-2"></div>
             <div class="col-md-10">
-                <!-- <p class="text-center mt-auto">© <?php echo date("Y"); ?> Iqbal. All rights reserved.</p> -->
+                <p class="text-center mt-auto">V0.8.0 © <?php echo date("Y"); ?> Iqbal. All rights reserved.</p>
             </div>
         </div>
     </div>

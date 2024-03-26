@@ -32,8 +32,8 @@ if(isset($_GET['id_transaksi'])) {
             <tr>
                 <th>No</th>
                 <th>Nama Barang</th>
-                <th>Harga Satuan</th>
                 <th>Qty</th>
+                <th>Harga Satuan</th>
                 <th>Subtotal</th>
             </tr>
             <?php
@@ -41,10 +41,10 @@ if(isset($_GET['id_transaksi'])) {
                 while ($row = mysqli_fetch_assoc($result_detail_barang)): 
                 ?>
                 <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $row['iqbal_nama_barang'] ?></td>
-                    <td width="20%">Rp <?= number_format($row['iqbal_harga_barang'], 2, ',', '.') ?></td>
+                    <td width="5%"><?= $no++ ?></td>
+                    <td width="45%"><?= $row['iqbal_nama_barang'] ?></td>
                     <td width="10%"><?= $row['iqbal_qty'] ?></td>
+                    <td width="15%">Rp <?= number_format($row['iqbal_harga_barang'], 2, ',', '.') ?></td>
                     <td width="20%">Rp <?= number_format($row['iqbal_subtotal'], 2, ',', '.') ?></td>
                 </tr>
                 <?php 
@@ -62,7 +62,7 @@ if(isset($_GET['id_transaksi'])) {
                         <input type="hidden" class="form-control" name="id_transaksi" value="<?= $id_transaksi ?>">
                         <div class="input-group">
                             <span class="input-group-text"><b>Rp</b></span>
-                            <input type="number" name="uang_diterima" id="uang_diterima" class="form-control" aria-label="" required>
+                            <input type="number" min="<?= $total ?>" name="uang_diterima" id="uang_diterima" class="form-control" aria-label="" required>
                             <span class="input-group-text"><b>,00</b></span>
                         </div>
                 </td>

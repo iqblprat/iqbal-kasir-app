@@ -29,16 +29,21 @@
         .form-signin .form-floating:focus-within {
             z-index: 2;
         }
-        .form-signin input[type="text"] {
+        .form-signin input[name="username"] {
             margin-bottom: -1px;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
         }
-        .form-signin input[type="password"] {
+        .form-signin input[name="password"] {
             margin-bottom: 10px;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+        /* .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        } */
     </style>
 </head>
 <body>
@@ -60,16 +65,18 @@
                         <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="showPassword">
                                 <label class="form-check-label" for="showPassword"><small>Show Password</small></label>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="text-center float-end">
-                                <input class="btn btn-success" type="submit" value="Login">
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <input class="btn btn-success w-100" type="submit" value="Login">
                             </div>
                         </div>
                     </div>

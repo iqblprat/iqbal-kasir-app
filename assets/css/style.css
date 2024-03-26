@@ -1,10 +1,12 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/Lato-Regular.ttf') format('truetype');
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 #sidebar-wrapper {
